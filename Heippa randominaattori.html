@@ -1,0 +1,46 @@
+<!doctype html>
+<head>
+<title>Supertieteellinen ruokasuunnitteluohjelmisto</title>
+<meta charset="utf-8" />
+    </head>
+    <body>
+    <button type="button" onclick="heippa()">Klikkaa minua!</button>
+    <p id="ruokaehdotus"></p>
+    <script>
+        function ehdotaRuokaa(ruokaehdotusMerkkijono) {
+            let ruokaehdotusElementti = document.getElementById("ruokaehdotus")
+            ruokaehdotusElementti.innerHTML = ruokaehdotusMerkkijono
+        }
+
+        function getRandomInt(max) {
+            return Math.floor(Math.random() * Math.floor(max));
+        }
+
+        let ruokalista = ["lasagne", "Caesar-salaatti", "kanapasta", "kasvissosekeitto", "Pizza", "Punajuurisalaatti"]
+        //console.log("Nollas indeksi: " + ruokalista[0]) //ensimmäinen
+        //console.log("Yhdes indeksi: " + ruokalista[1]) //toinen
+        //console.log("Kahdes indeksi: " + ruokalista[2]) //kolmas
+        //console.log("Kolmas indeksi: " + ruokalista[3]) //neljäs
+        //console.log("Neljäs indeksi: " + ruokalista[4]) //viides
+        //console.log("Viides indeksi: " + ruokalista[5]) //kuudes
+
+        let edellinenNumero = -1
+
+
+        console.log(ruokalista)
+        function heippa(){
+            let randomiNumero = getRandomInt(ruokalista.length)
+            while (randomiNumero === edellinenNumero) {
+            
+              randomiNumero = getRandomInt(ruokalista.length)
+        }
+            ehdotaRuokaa(ruokalista[randomiNumero])
+            edellinenNumero = randomiNumero
+        }
+        // TOIMINNALLISUUDET
+        // ylläpitää listaa erilaisista lemppariruoista
+        // arpoo jonkin ruoan listasta nappia painettaessa
+        // näyttää ruoan käyttöliittymässä
+    </script>
+</body>
+
